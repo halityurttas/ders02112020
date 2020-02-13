@@ -1,7 +1,5 @@
-<cfquery datasource="testdatasource">
-    INSERT INTO Customers (Title, Phone) 
-    VALUES (<cfqueryparam cfsqltype="cf_sql_nvarchar" value="#form.title#">, <cfqueryparam cfsqltype='CF_SQL_NVARCHAR' value='#form.phone#'>)
-</cfquery>
+<cfobject name="custdata" type="component" component="customerdata">
+<cfset custdata.insert( form.title, form.phone )>
 <script type="text/javascript">
-    document.location = '/customer.cfm';
+    document.location = '/customers/list.cfm';
 </script>
